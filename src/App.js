@@ -3,21 +3,21 @@ import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
-import './config/ReactotronConfig';
+import '~/config/ReactotronConfig';
 
-import GlobalStyle from './styles/global';
+import GlobalStyle from '~/styles/global';
 import Header from '~/components/Header';
-import Routes from './routes';
+import MainRouter from '~/mainRouter';
 
-import history from './util/history';
-import store from './store';
+import history from '~/utils/history';
+import store from '~/store';
 
-function App() {
+const App = () => {
     return (
         <Provider store={store}>
             <Router history={history}>
                 <Header />
-                <Routes />
+                <MainRouter />
                 <GlobalStyle />
                 <ToastContainer autoClose={3000} />
             </Router>

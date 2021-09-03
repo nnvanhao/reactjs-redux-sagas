@@ -1,11 +1,11 @@
 import { call, put, select, all, takeLatest } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
-import history from '../../../util/history';
+import history from '../../../utils/history';
 import api from '../../../services/api';
 
 import { addToCartSuccess, updateAmountSuccess } from './actions';
-import { formatPrice } from '../../../util/format';
+import { formatPrice } from '../../../utils/formats';
 
 function* addToCart({ id }) {
     // get the current state and perform a selector on it

@@ -6,7 +6,7 @@ import {
     MdDelete,
 } from 'react-icons/md';
 
-import { formatPrice } from '../../util/format';
+import { formatPrice } from '../../utils/formats';
 
 import * as CartActions from '../../store/modules/cart/actions';
 
