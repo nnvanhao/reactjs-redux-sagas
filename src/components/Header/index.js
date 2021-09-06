@@ -8,8 +8,6 @@ import logo from '../../assets/images/logo.png';
 
 // cart is coming from mapStateToProps
 export default function Header() {
-    // this replaces the connect and mapStateToProps stuff
-    const cartSize = useSelector(state => state.cart.length);
 
     return (
         <Container>
@@ -20,7 +18,6 @@ export default function Header() {
             <Cart to="/cart">
                 <div>
                     <strong>My cart</strong>
-                    <span>{cartSize} items </span>
                 </div>
                 <MdShoppingBasket size={36} color="#7159c1" />
             </Cart>

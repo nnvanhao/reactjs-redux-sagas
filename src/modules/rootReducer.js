@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import cart from './cart/reducers';
+import devTo from './devto/reducers';
 
 export default combineReducers({
-    cart,
+    devTo,
 });

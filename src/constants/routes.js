@@ -1,5 +1,5 @@
 const ROUTE = {
-    HOME: '/home'
+    HOME: '/'
 }
 
 export {

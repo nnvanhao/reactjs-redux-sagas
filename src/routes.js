@@ -4,7 +4,6 @@ import { handleGetLoggedInUser, isUserAuthenticated } from '~/utils/auths';
 import { ROUTE } from '~/constants/routes';
 
 const HomePage = React.lazy(() => import('~/pages/Home'));
-const CartPage = React.lazy(() => import('~/pages/Cart'));
 
 const PrivateRoute = ({ component: Component, roles, ...rest }) => (
     <Route
@@ -48,16 +47,8 @@ const homeRoute = {
     route: PrivateRoute
 };
 
-const cartRoute = {
-    path: "/cart",
-    exact: true,
-    component: CartPage,
-    route: PrivateRoute
-};
-
 const allRoutes = [
     homeRoute,
-    cartRoute
 ];
 
 const allFlattenRoutes = flattenRoutes(allRoutes);

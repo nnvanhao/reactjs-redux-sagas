@@ -3,13 +3,13 @@ import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
-import '~/config/ReactotronConfig';
+import '~/config/reactotronConfig';
 
 import GlobalStyle from '~/styles/global';
 import Header from '~/components/Header';
 import MainRouter from '~/mainRouter';
 
-import history from '~/utils/history';
+import { history } from '~/utils/navigations';
 import store from '~/store';
 
 const App = () => {

@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import rootReducer from './modules/rootReducer';
-import rootSaga from './modules/rootSagas';
+import rootReducer from '~/modules/rootReducer';
+import rootSaga from '~/modules/rootSagas';
 
 const sagaMonitor =
     process.env.NODE_ENV === 'development'
