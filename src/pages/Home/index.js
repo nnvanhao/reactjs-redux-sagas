@@ -5,22 +5,20 @@ import { handleGetDevToNews } from '~/modules/devto/actions';
 
 export default function Home() {
     const dispatch = useDispatch();
-    const { users = []} = useSelector(state => state.devTo);
-
-    console.log('users', users);
-
+    const { users = [] } = useSelector(state => state.devTo);
+    
     useEffect(() => {
         dispatch(handleGetDevToNews());
     }, [])
 
     return (
         <div>
-           {users.map(item => {
-               const { name = '' } = item;
-               return(
-                   <div>{name}</div>
-               )
-           })}
+            {users.map(item => {
+                const { name = '' } = item;
+                return (
+                    <div>{name}</div>
+                )
+            })}
         </div>
     );
 }

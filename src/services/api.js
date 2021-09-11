@@ -3,6 +3,8 @@ import { METHOD, API_SERVICE_TYPE } from '~/constants/api';
 import config from '~/config';
 import { handleGenerateNonce, handleGenerateSignature, handleGenerateTimestamp } from '~/utils/securities';
 import { handleGetTimeZone } from '~/utils/datetimes';
+import store from '~/store';
+import { handleLoading } from '~/modules/loading/actions';
 
 // Creat new instance
 function HttpRequest() { }
@@ -69,7 +71,7 @@ function handleGetSecurityHeaders(method, path, body, token, secret) {
     };
 }
 
-const request = async (method, url, body, type, isUpload = false) => {
+const request = async (method, url, body, isLoadingScreen = true, type, isUpload = false) => {
     let urlEncoded = encodeURI(url);
     let headers = handleGetHeaders(method, urlEncoded, body, null);
     let apiUrl = handleGetUrl(urlEncoded, type);
@@ -88,6 +90,9 @@ const request = async (method, url, body, type, isUpload = false) => {
         options.data = JSON.stringify(body);
     }
 
+    // Handle show loading full screen
+    isLoadingScreen && store.dispatch(handleLoading(true));
+
     return new Promise((resolve, reject) => {
         axios
             .request({
@@ -95,8 +100,11 @@ const request = async (method, url, body, type, isUpload = false) => {
                 ...options,
             })
             .then(response => {
+                // Handle hide loading full screen
+                isLoadingScreen &&  store.dispatch(handleLoading(false));
+
                 const { data, status } = response;
-                return resolve({ data, status});
+                return resolve({ data, status });
             })
             .catch(error => {
                 if (error.response) {
@@ -114,29 +122,29 @@ const request = async (method, url, body, type, isUpload = false) => {
     });
 }
 
-HttpRequest.get = (url, type) => {
+HttpRequest.get = (url, isLoadingScreen, type) => {
     const method = METHOD.GET;
-    return request(method, url, {}, type);
+    return request(method, url, {}, isLoadingScreen, type);
 };
 
-HttpRequest.post = (url, body, type) => {
+HttpRequest.post = (url, body, isLoadingScreen, type) => {
     const method = METHOD.POST;
-    return request(method, url, body, type);
+    return request(method, url, body, isLoadingScreen, type);
 };
 
-HttpRequest.postFormData = (url, formData, type) => {
+HttpRequest.postFormData = (url, formData, isLoadingScreen, type) => {
     const method = METHOD.POST;
-    return request(method, url, formData, type, true);
+    return request(method, url, formData, isLoadingScreen, type, true);
 };
 
-HttpRequest.put = (url, body, type) => {
+HttpRequest.put = (url, body, isLoadingScreen, type) => {
     const method = METHOD.PUT;
-    return request(method, url, body, type);
+    return request(method, url, body, isLoadingScreen, isLoadingScreen, type);
 };
 
-HttpRequest.delete = (url, body, type) => {
+HttpRequest.delete = (url, body, isLoadingScreen, type) => {
     const method = METHOD.DELETE;
-    return request(method, url, body, type);
+    return request(method, url, body, isLoadingScreen, type);
 };
 
 export default HttpRequest;

@@ -8,15 +8,15 @@ const cookieKey = 'estateUser';
  * Checks if user is authenticated
  */
 const isUserAuthenticated = () => {
-    const user = handleGetLoggedInUser();
-    if (!user) return false;
-    const decoded = jwtDecode(user.token);
-    const currentTime = Date.now() / 1000;
-    if (decoded.exp < currentTime) {
-        // removeUserCookies();
-        // store.dispatch(removeUserInfo());
-        return false;
-    }
+    // const user = handleGetLoggedInUser();
+    // if (!user) return false;
+    // const decoded = jwtDecode(user.token);
+    // const currentTime = Date.now() / 1000;
+    // if (decoded.exp < currentTime) {
+    //     // removeUserCookies();
+    //     // store.dispatch(removeUserInfo());
+    //     return false;
+    // }
     return true;
 };
 

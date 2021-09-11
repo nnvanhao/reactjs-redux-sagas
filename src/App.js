@@ -12,14 +12,21 @@ import MainRouter from '~/mainRouter';
 import { history } from '~/utils/navigations';
 import store from '~/store';
 
+import Container from '~/components/Container';
+import Loading from '~/components/Loading';
+
 const App = () => {
     return (
         <Provider store={store}>
             <Router history={history}>
-                <Header />
-                <MainRouter />
-                <GlobalStyle />
-                <ToastContainer autoClose={3000} />
+                <Container>
+                    <Loading>
+                        <Header />
+                        <MainRouter />
+                        <GlobalStyle />
+                        <ToastContainer autoClose={3000} />
+                    </Loading>
+                </Container>
             </Router>
         </Provider>
     );
