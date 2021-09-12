@@ -1,5 +1,4 @@
-import { call, put, select, all, takeLatest } from 'redux-saga/effects';
-import { toast } from 'react-toastify';
+import { call, put, all, takeLatest } from 'redux-saga/effects';
 import { ACTION_TYPE } from '~/constants/actionTypes';
 import httpRequest from '~/services/api';
 import { handleGetApiPath } from '~/utils/api';

@@ -5,6 +5,8 @@ import { handleGenerateNonce, handleGenerateSignature, handleGenerateTimestamp }
 import { handleGetTimeZone } from '~/utils/datetimes';
 import store from '~/store';
 import { handleLoading } from '~/modules/loading/actions';
+import * as notification from '~/utils/notifications';
+import { NOTIFICATION_TYPE } from '~/constants/common';
 
 // Creat new instance
 function HttpRequest() { }
@@ -97,25 +99,33 @@ const request = async (method, url, body, isLoadingScreen = true, type, isUpload
         axios
             .request({
                 url: apiUrl,
+                timeout: 60000,
                 ...options,
             })
             .then(response => {
                 // Handle hide loading full screen
-                isLoadingScreen &&  store.dispatch(handleLoading(false));
+                isLoadingScreen && store.dispatch(handleLoading(false));
 
                 const { data, status } = response;
                 return resolve({ data, status });
             })
             .catch(error => {
+                isLoadingScreen && store.dispatch(handleLoading(false));
+
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     const { data: errorData, status } = error.response;
                     return resolve({ ...errorData, status });
                 } else if (error.request) {
+                    // Show notification
+                    notification.custom('Internal Server Error', error.message, NOTIFICATION_TYPE.ERROR);
+
                     return resolve({ status: 408, error: { message: 'ECONNABORTED' } });
                 } else {
+                    // Show notification
+                    notification.custom('Internal Server Error', error.message, NOTIFICATION_TYPE.ERROR);
+
                     // Something happened in setting up the request that triggered an Error
-                    console.log('Error', error.message);
                     reject(error);
                 }
             });
