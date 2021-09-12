@@ -1,6 +1,14 @@
-import { createGlobalStyle } from 'styled-components';
-
+import { createGlobalStyle, keyframes } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+`
 
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
@@ -16,8 +24,9 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
     }
 
-    body, input, button {
+    body, input, button, div, p {
         font: 14px 'Roboto';
+        animation: ${fadeIn} 1s linear;
     }
 
     #root {

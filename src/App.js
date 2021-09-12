@@ -16,6 +16,9 @@ import store from '~/store';
 import Container from '~/components/Container';
 import Loading from '~/components/Loading';
 
+// import i18n (needs to be bundled ;))
+import '~/utils/i18n';
+
 const App = () => {
     return (
         <Provider store={store}>
