@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { FcHighPriority } from 'react-icons/fc';
 import { handleGetDevToNews } from '~/modules/devto/actions';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
+import ThemeMode from '~/components/ThemeMode';
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -18,13 +18,12 @@ export default function Home() {
 
     return (
         <div>
-            {t('description.part2')}
+            <ThemeMode />
+            <p>{t('description.part2')}</p>
             {users.map(item => {
                 const { name = '' } = item;
                 return (
-                    <div>
-                        <FcHighPriority size={25}/>{name}
-                    </div>
+                    <p>{name}</p>
                 )
             })}
         </div>

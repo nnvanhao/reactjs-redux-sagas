@@ -1,4 +1,7 @@
-import { createGlobalStyle, keyframes } from 'styled-components';
+import {
+    createGlobalStyle,
+    keyframes
+} from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
 
 const fadeIn = keyframes`
@@ -10,8 +13,20 @@ const fadeIn = keyframes`
   }
 `
 
-export default createGlobalStyle`
+// Theme.js
+const darkTheme = {
+    textColor: "#d9d9d9",
+    background: "#26242E"
+};
+
+const lightTheme = {
+    textColor: "#26242E",
+    background: "#ffffff"
+};
+
+const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins&display=swap');
 
     * {
         margin: 0;
@@ -24,8 +39,15 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
     }
 
-    body, input, button, div, p {
-        font: 14px 'Roboto';
+    body {
+        background-color: ${({ theme }) => theme.background};
+        color: ${({ theme }) => theme.textColor};
+        transition: all 200ms;
+    }
+
+    body, input, button, div, p, i {
+        font: 13px 'Montserrat';
+        font-weight: 500;
         animation: ${fadeIn} 1s linear;
     }
 
@@ -39,3 +61,9 @@ export default createGlobalStyle`
         cursor: pointer;
     }
 `;
+
+export {
+    GlobalStyle,
+    lightTheme,
+    darkTheme
+}

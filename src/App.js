@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 
 import '~/config/reactotronConfig';
 
-import GlobalStyle from '~/styles/global';
+import { GlobalStyle } from '~/styles/global';
 import Header from '~/components/Header';
 import MainRouter from '~/mainRouter';
 
