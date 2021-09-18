@@ -6,6 +6,7 @@ import {
     darkTheme
 } from '~/styles/global';
 import { useSelector } from 'react-redux';
+import { THEME_MODE_TYPE } from '~/constants/common';
 
 // cart is coming from mapStateToProps
 export default function Container(props) {
@@ -13,7 +14,7 @@ export default function Container(props) {
 
     return (
         <Wrapper>
-            <ThemeProvider theme={themeMode ? darkTheme : lightTheme}>
+            <ThemeProvider theme={themeMode === THEME_MODE_TYPE.DARK ? darkTheme : lightTheme}>
                 {props.children}
             </ThemeProvider>
         </Wrapper>

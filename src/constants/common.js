@@ -13,6 +13,11 @@ const LOCAL_STORAGE_KEY_TYPE = {
     CURRENT_LANGUAGE: 'CURRENT_LANGUAGE',
 }
 
+const THEME_MODE_TYPE = {
+    LIGHT: 'Light',
+    DARK: 'Dark',
+}
+
 const LANGUAGES = [
     {
         key: 'en',
@@ -30,5 +35,6 @@ const LANGUAGES = [
 export {
     NOTIFICATION_TYPE,
     LOCAL_STORAGE_KEY_TYPE,
+    THEME_MODE_TYPE,
     LANGUAGES
 }

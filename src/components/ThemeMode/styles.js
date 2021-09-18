@@ -31,10 +31,10 @@ export const BallMoon = styled.div`
 	left: 2px;
 	height: 22px;
 	width: 22px;
-	transform: translateX(0px);
+	transform: translateX(26px);
 	transition: transform 0.2s linear;
 `;
 
 export const BallSun = styled(BallMoon)`
-    transform: translateX(26px);
+    transform: translateX(0px);
 `;
