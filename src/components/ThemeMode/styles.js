@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div `
     
 `;
 
-export const CheckboxInput = styled.input`
+export const CheckboxInput = styled.input `
     opacity: 0;
 	position: absolute;
 `;
 
-export const Label = styled.label`
+export const Label = styled.label `
     background-color: #111;
 	border-radius: 50px;
 	cursor: pointer;
@@ -23,7 +23,7 @@ export const Label = styled.label`
 	transform: scale(1.2);
 `;
 
-export const BallMoon = styled.div`
+export const BallMoon = styled.div `
     background-color: #fff;
 	border-radius: 50%;
 	position: absolute;
@@ -35,6 +35,7 @@ export const BallMoon = styled.div`
 	transition: transform 0.2s linear;
 `;
 
-export const BallSun = styled(BallMoon)`
+export const BallSun = styled(BallMoon)
+`
     transform: translateX(0px);
 `;

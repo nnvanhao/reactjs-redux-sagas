@@ -34,6 +34,9 @@ const handleGetHeaders = (method, url, body = {}, user = {}) => {
     headers['Accept-Language'] = 'da, en-gb;1=0.8, en;q=0.7';
     headers['Authorization'] = 'Bearer ' + token;
     headers['TimeZone'] = handleGetTimeZone();
+    
+    headers['x-rapidapi-host'] = 'github-trending.p.rapidapi.com';
+    headers['x-rapidapi-key'] = '644cb23954mshac3995dc4947c0ap1ecec8jsn648a840acf27';
 
     return headers;
 }

@@ -21,7 +21,7 @@ const darkTheme = {
 
 const lightTheme = {
     textColor: "#26242E",
-    background: "#ffffff"
+    background: "#F0F6F7FF"
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -52,9 +52,12 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        max-width: 1020px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* max-width: 1020px;
         margin: 0 auto;
-        padding: 0 20px 50px;
+        padding: 0 20px 50px; */
     }
 
     button {

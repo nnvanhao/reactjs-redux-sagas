@@ -3,16 +3,15 @@ import { ACTION_TYPE } from '~/constants/actionTypes';
 import httpRequest from '~/services/api';
 import { handleGetApiPath } from '~/utils/api';
 import { API } from '~/services/app.routes';
-import { handleGetDevToNewsSuccess } from '~/modules/devto/actions';
+import { handleGetGithubTrendingSuccess } from '~/modules/github/actions';
 
-function* handleGetDevToNews() {
-    const path = handleGetApiPath(API.GET_DEV_TO);
+function* handleGetGithubTrending() {
+    const path = handleGetApiPath(API.GET_GITHUB_TRENDING);
     const result = yield call(httpRequest.get, path);
-    console.log('result', result);
     const { data = [] } = result;
-    yield put(handleGetDevToNewsSuccess(data));
+    yield put(handleGetGithubTrendingSuccess(data));
 }
 
 export default all([
-    takeLatest(ACTION_TYPE.DEV_TO.GET_DEVTO_NEWS, handleGetDevToNews),
+    takeLatest(ACTION_TYPE.GITHUB.GET_GITHUB_TRENDING, handleGetGithubTrending),
 ]);

@@ -1,6 +1,9 @@
 const API = {
   GET_DEV_TO: {
-    path: 'users'
+    path: '/repositories'
+  },
+  GET_GITHUB_TRENDING: {
+    path: '/repositories'
   },
 };
 

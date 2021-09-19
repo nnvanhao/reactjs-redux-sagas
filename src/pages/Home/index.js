@@ -3,22 +3,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import { handleGetDevToNews } from '~/modules/devto/actions';
 import { useTranslation } from 'react-i18next';
 import ThemeMode from '~/components/ThemeMode';
-import SelectLanguage from '~/components/SelectLanguage';
+import GithubTrending from '~/components/GithubTrending';
 
 export default function Home() {
     const dispatch = useDispatch();
     const { t } = useTranslation();
 
-    const { users = [] } = useSelector(state => state.devTo);
+    // const { users = [] } = useSelector(state => state.devTo);
 
-    useEffect(() => {
-
-        dispatch(handleGetDevToNews());
-    }, [])
+    // useEffect(() => {
+    //     dispatch(handleGetDevToNews());
+    // }, [])
 
     return (
         <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent: 'center' }}>
+            <GithubTrending />
+            {/* <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent: 'center' }}>
                 <ThemeMode />
                 <SelectLanguage />
             </div>
@@ -30,7 +30,7 @@ export default function Home() {
                         <p>{name}</p>
                     )
                 })}
-            </div>
+            </div> */}
         </div>
     );
 }

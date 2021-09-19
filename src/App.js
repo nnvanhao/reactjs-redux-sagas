@@ -25,7 +25,7 @@ const App = () => {
             <Router history={history}>
                 <Container>
                     <Loading>
-                        <Header />
+                        {/* <Header /> */}
                         <MainRouter />
                         <GlobalStyle />
                         <ToastContainer autoClose={3000} />

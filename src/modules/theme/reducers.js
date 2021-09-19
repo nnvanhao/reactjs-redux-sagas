@@ -1,6 +1,10 @@
-import produce from 'immer';
-import { ACTION_TYPE } from '~/constants/actionTypes';
-import { THEME_MODE_TYPE } from '~/constants/common';
+import produce from "immer";
+import {
+    ACTION_TYPE
+} from '~/constants/actionTypes';
+import {
+    THEME_MODE_TYPE
+} from '~/constants/common';
 
 const INITIAL_STATE = {
     themeMode: THEME_MODE_TYPE.LIGHT,
